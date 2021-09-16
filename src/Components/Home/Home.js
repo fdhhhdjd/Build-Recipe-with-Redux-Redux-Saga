@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import * as types from "../redux/Action-types";
+import * as types from "../../redux/Action-types";
 import { useDispatch, useSelector } from "react-redux";
 import Grid from "@material-ui/core/Grid";
-
-import RecipesMap from "../Pages/Recipes/RecipesMap";
+import "./Home.css";
+import RecipesMap from "../../Pages/Recipes/RecipesMap";
+import Navbar from "../../Pages/Navbar/Navbar";
 function Home() {
   const classes = useStyles();
   const Gird = GirdStyles();
@@ -33,8 +34,15 @@ function Home() {
   }, [query]);
   return (
     <>
-      <div>
+      <Navbar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="app">
         <h2>Recipe From Tai Heo Dev 😊</h2>
+        <br />
+
         <form
           className={classes.root}
           noValidate
@@ -57,6 +65,7 @@ function Home() {
             Search 😎
           </Button>
         </form>
+        <br />
         <Grid container className={Gird.root} spacing={2}>
           <Grid item xs={12}>
             <Grid container justifyContent="center" spacing={2}>
