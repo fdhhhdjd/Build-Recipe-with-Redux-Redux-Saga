@@ -8,10 +8,11 @@ import Grid from "@material-ui/core/Grid";
 import "./Home.css";
 import RecipesMap from "../../Pages/Recipes/RecipesMap";
 import Navbar from "../../Pages/Navbar/Navbar";
+import { ToastContainer, toast, style } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Home() {
   const classes = useStyles();
   const Gird = GirdStyles();
-
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("mango");
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ function Home() {
       <div className="app">
         <h2>Recipe From Tai Heo Dev 😊</h2>
         <br />
-
+        <ToastContainer />
         <form
           className={classes.root}
           noValidate
@@ -65,6 +66,7 @@ function Home() {
             Search 😎
           </Button>
         </form>
+
         <br />
         <Grid container className={Gird.root} spacing={2}>
           <Grid item xs={12}>

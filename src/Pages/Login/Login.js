@@ -1,21 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Particles from "react-particles-js";
 import { ToastContainer, toast, style } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  facebookInitial,
+  googleInitial,
+  loginInitial,
+} from "../../redux/Action";
+import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
   const [state, setState] = useState({
     email: "",
     password: "",
   });
+  const { currentUser } = useSelector((state) => state.data);
+  const history = useHistory();
+  const dispatch = useDispatch();
   const { email, password } = state;
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!email || !password) {
+      return;
+    }
+    dispatch(loginInitial(email, password));
+    setState({ email: "", password: "" });
   };
-  const handleGoogleSignIn = () => {};
-  const handleFacebookSignIn = () => {};
-  const handleChange = () => {};
+  useEffect(() => {
+    if (currentUser) {
+      history.push("/");
+    }
+  }, [currentUser, history]);
+  const handleGoogleSignIn = (google) => {
+    dispatch(googleInitial(google));
+  };
+  const handleFacebookSignIn = (facebook) => {
+    dispatch(facebookInitial(facebook));
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
   return (
     <div>
       <div className="background-dynamic">

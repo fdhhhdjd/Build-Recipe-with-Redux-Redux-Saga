@@ -6,6 +6,20 @@ export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
+export const LOGOUT_START = "LOGOUT_START";
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+export const LOGOUT_FAIL = "LOGOUT_FAIL";
+
+export const GOOGLE_START = "GOOGLE_START";
+export const GOOGLE_SUCCESS = "GOOGLE_SUCCESS";
+export const GOOGLE_FAIL = "GOOGLE_FAIL";
+
+export const FACEBOOK_START = "FACEBOOK_START";
+export const FACEBOOK_SUCCESS = "FACEBOOK_SUCCESS";
+export const FACEBOOK_FAIL = "FACEBOOK_FAIL";
+
+export const SET_USER = "SET_USER";
+
 export const GET_RECIPE_START = "GET_RECIPE_START";
 export const GET_RECIPE_SUCCESS = "GET_RECIPE_SUCCESS";
 export const GET_RECIPE_FAIL = "GET_RECIPE_FAIL";
